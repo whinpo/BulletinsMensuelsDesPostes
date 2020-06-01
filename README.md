@@ -1,6 +1,6 @@
 # BulletinsMensuelsDesPostes
-Utilisation des API Gallica et remise en forme des données
-Il est fort probable que ce nous allons faire ici puisse fonctionner sur la plupart des périoques de Gallica
+Utilisation des API Gallica et remise en forme des données  
+Il est fort probable que ce nous allons faire ici puisse fonctionner sur la plupart des périoques de Gallica  
 
 Gallica met à disposition tout un tas de métadonnées qui peuvent permettre le traitement en masse des documents scannés. 
 Grâce à leurs API http://api.bnf.fr/api-document-de-gallica nous avons accès à ces métadonnées
