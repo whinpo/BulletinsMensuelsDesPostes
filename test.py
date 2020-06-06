@@ -44,13 +44,49 @@ for div in soup.find_all('div0'):
         # for div1 in div.find('div1'):
             print("\tDiv1 {}".format(div1.contenu.text))
             try:
+                # on lit les div2
                 for div2 in div1.find_all('div2'):
                     print("\t\tDiv2 {}".format(div2.contenu.text))
+                    # on lit les div3
                     try:
                         for div3 in div1.find_all('div3'):
                             print("\t\t\tDiv3 {}".format(div3.contenu.text))
+                            # on lit les tables des div3
+                            try:
+                                for rows in div3.table:
+                                    for cells in rows.find_all('cell'):
+                                        try:
+                                            print("\t\t\t\t{}".format(cells.seg.text))
+                                        except:
+                                            xref=cells.xref.attrs.get("from")
+                                            print("\t\t\t\t\t{}".format(xref))
+                                        # print("\t\t\t\t{}".format(cells))
+                            except:
+                                pass
+                        # on lit les tables de div2
+                        try:
+                            for rows in div2.table:
+                                for cells in rows.find_all('cell'):
+                                    try:
+                                        print("\t\t\t{}".format(cells.seg.text))
+                                    except:
+                                        xref=cells.xref.attrs.get("from")
+                                        print("\t\t\t\t{}".format(xref))
+                        except:
+                            pass
                     except:
                         pass
+                # on lit les tables de div1
+                try:
+                    for rows in div1.table:
+                        for cells in rows.find_all('cell'):
+                            try:
+                                print("\t\t{}".format(cells.seg.text))
+                            except:
+                                xref=cells.xref.attrs.get("from")
+                                print("\t\t\t{}".format(xref))
+                except:
+                    pass
             except:
                 pass
         print("\n")
