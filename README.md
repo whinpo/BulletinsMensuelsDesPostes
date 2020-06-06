@@ -20,6 +20,7 @@ On trouve des TdM dans toutes les TOC des BM et des Index notamment dans les BM 
 Le TOC https://gallica.bnf.fr/services/Toc?ark=bpt6k5511454q aura servi à l'élaboration de ce qui va suivre.
 
 ## Traitement des TdM
+Voici un exmple de TdM extait de https://gallica.bnf.fr/services/Toc?ark=bpt6k5518984r que l'on peut voir dans le document sous sa forme originelle sur https://gallica.bnf.fr/ark:/12148/bpt6k5518984r
 ```xml
 <div1 type="TdM">
     <head>SOMMAIRE. JUIN 1858. N° 34.</head>
@@ -34,10 +35,32 @@ Le TOC https://gallica.bnf.fr/services/Toc?ark=bpt6k5511454q aura servi à l'él
         BUREAU.
     </head>
     <table>
-        <row>
-            <cell>
-                <seg n="int.000001">
-                    EXECUTION de la Convention de poste conclue entre la France et la Bavière, le 19 mars 1858. - Notification d'un décret pour l'exécution de cette Convention. - Instructions à ce sujet
-                </seg>
-            </cell>
+      <row>
+        <cell>
+          <seg n="int.000001">EXECUTION de la Convention de poste conclue entre la France et la Bavi�re, le 19 mars 1858. - Notification d'un d�cret pour l'ex�cution de cette Convention. - Instructions � ce sujet</seg>
+        </cell>
+        <cell>
+          <xref from="FOREIGN (5518984/000002.TIF)" n="lie.000001" to="FOREIGN (5518984/000009.TIF)" type="image">246 � 253</xref>
+        </cell>
+      </row>
 ```
+On voit bien, ici, la hiérarchisation de l'information :
+Sommaire/Sujet1/Articles/lien :
+* SOMMAIRE. JUIN 1858. N° 34./1° INSTRUCTIONS DE L'ADMINISTRATION./CIRCULAIRE N° 85. - 1/EXECUTION de la Convention de poste conclue entre la Fra.../**lien**
+* SOMMAIRE. JUIN 1858. N° 34./1° INSTRUCTIONS DE L'ADMINISTRATION./CIRCULAIRE N° 85. - 1/DECRET impérial du 1er Juin...
+
+## format des liens
+```xml           <xref from="FOREIGN (5518984/000002.TIF)" n="lie.000001" to="FOREIGN (5518984/000009.TIF)" type="image">246 � 253</xref>```
+Les liens sont de la forme : from/to (de la page from à la page to)=> ce qui nous importe peu dans notre cas, le but étant, pour nous, de remonter le lien de début d'article.
+
+```xml FOREIGN (5518984/000002.TIF)``` est la partie qui nous intéresse.
+### ark du document
+*5518984* : début du NOID du document référencé. Il manque ici la clé de validation qu'il va falloir calculer en utilisant l'algorithme indiqué sur : https://metacpan.org/pod/distribution/Noid/noid#NOID-CHECK-DIGIT-ALGORITHM
+il faut rajouter bptk6k au NOID
+* bpt6k5511454 => bpt6k5511454q
+* bpt6k5511363 => bpt6k5511363b
+On utilisera la fonction du module bm.py => get_full_ark()
+**Toutefois, il est à noter que le lien peut pointer sur un autre document**
+### page
+000002.TIF => il faudra donc afficher la page 2 en utilisant l'url :
+https://gallica.bnf.fr/ark:/12148/*arkCalculé*/f*numPage*
