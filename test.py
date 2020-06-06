@@ -29,15 +29,34 @@ import certifi
 import csv
 import json
 from pprint import pprint
+from tei_reader import TeiReader
 url='https://gallica.bnf.fr/services/Toc?ark=bpt6k5511454q'
 session = HTMLSession()
 page_html=session.get(url)
 # on remplace la balise head par texte sinon bs ne fonctionne pas bien, il enlève les head
-page2=page_html.html.html.replace('head','texte')
+page2=page_html.html.html.replace('head','contenu')
 soup=bs.BeautifulSoup(page2,'lxml')
-div1=soup.find_all('div1')
-print(div1[0].prettify())
-# peut-être utiliser un TEI reader ?
+# for div in soup.find_all('div0'):
+for div in soup.find_all('div0'):
+    print("Div : {}".format(div.contenu.text))
+    try:
+        for div1 in div.find_all('div1'):
+        # for div1 in div.find('div1'):
+            print("\tDiv1 {}".format(div1.contenu.text))
+            try:
+                for div2 in div1.find_all('div2'):
+                    print("\t\tDiv2 {}".format(div2.contenu.text))
+                    try:
+                        for div3 in div1.find_all('div3'):
+                            print("\t\t\tDiv3 {}".format(div3.contenu.text))
+                    except:
+                        pass
+            except:
+                pass
+        print("\n")
+    except:
+        pass
+
 
 
 #

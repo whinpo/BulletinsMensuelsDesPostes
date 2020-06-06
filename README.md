@@ -37,14 +37,18 @@ Voici un exmple de TdM extait de https://gallica.bnf.fr/services/Toc?ark=bpt6k55
     <table>
       <row>
         <cell>
-          <seg n="int.000001">EXECUTION de la Convention de poste conclue entre la France et la Bavi�re, le 19 mars 1858. - Notification d'un d�cret pour l'ex�cution de cette Convention. - Instructions � ce sujet</seg>
+          <seg n="int.000001">EXECUTION de la Convention de poste conclue entre la France et la Bavière, le 19 mars 1858. - Notification d'un décret pour l'exécution de cette Convention. - Instructions à ce sujet</seg>
         </cell>
         <cell>
-          <xref from="FOREIGN (5518984/000002.TIF)" n="lie.000001" to="FOREIGN (5518984/000009.TIF)" type="image">246 � 253</xref>
+          <xref from="FOREIGN (5518984/000002.TIF)" n="lie.000001" to="FOREIGN (5518984/000009.TIF)" type="image">246 à 253</xref>
         </cell>
       </row>
 ```
 On voit bien, ici, la hiérarchisation de l'information :
+div1 : Titre du sommaire : SOMMAIRE. JUIN 1858. N° 34
+  div 2 :  Suet1 => 1° INSTRUCTIONS DE L'ADMINISTRATION
+  div 3 : complément Sujet : CIRCULAIRE N° 85. - 1
+  table : liste des liens/articles
 Sommaire/Sujet1/Articles/lien :
 * SOMMAIRE. JUIN 1858. N° 34./1° INSTRUCTIONS DE L'ADMINISTRATION./CIRCULAIRE N° 85. - 1/EXECUTION de la Convention de poste conclue entre la Fra.../**lien**
 * SOMMAIRE. JUIN 1858. N° 34./1° INSTRUCTIONS DE L'ADMINISTRATION./CIRCULAIRE N° 85. - 1/DECRET impérial du 1er Juin...
@@ -64,3 +68,34 @@ On utilisera la fonction du module bm.py => get_full_ark()
 ### page
 000002.TIF => il faudra donc afficher la page 2 en utilisant l'url :
 https://gallica.bnf.fr/ark:/12148/*arkCalculé*/f*numPage*
+
+## Python
+### extraction des données en Python
+* Utilisation de BeautifulSoup
+* le xml du TOC contenant "head" qui est supprimé par BeautifulSoup, on remplace le tag "head" par "texte"
+```Python
+page_html=session.get(url)
+# on remplace la balise head par texte sinon bs ne fonctionne pas bien, il enlève les head
+page2=page_html.html.html.replace('head','texte')
+soup=bs.BeautifulSoup(page2,'lxml')
+```
+Pour chaque div1
+  on note le titre du sommaire
+  pour chaque div2
+    on note le Sujet1
+    pour chaque div3
+      on complète le sujet
+      pour chaque tableau
+        on prend le titre de l'article
+        on prend le lien
+    pour chaque tableau
+      on prend le titre de l'article
+      on prend le lien
+  pour chaque tableau
+    on prend le titre de l'article
+    on prend le lien
+
+
+
+
+### Traitement de l'arborescence
