@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6b3ae0f5-8944-457e-8715-8b344a54e1ea" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/gallica.py" beforeDir="false" afterPath="$PROJECT_DIR$/gallica.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1cz0hRQpAEPwTqPqKn40AHfvwzm" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="test2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="BulletinsMensuelsDesPostes" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.test2" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6b3ae0f5-8944-457e-8715-8b344a54e1ea" name="Default Changelist" comment="" />
+      <created>1591516232224</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1591516232224</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1899" height="347" key="GridCell.Tab.0.bottom" timestamp="1591516512265">
+      <screen x="0" y="0" width="1920" height="1055" />
+    </state>
+    <state width="1899" height="347" key="GridCell.Tab.0.bottom/0.0.1920.1055/1920.0.1280.1024@0.0.1920.1055" timestamp="1591516512265" />
+    <state width="1899" height="347" key="GridCell.Tab.0.center" timestamp="1591516512265">
+      <screen x="0" y="0" width="1920" height="1055" />
+    </state>
+    <state width="1899" height="347" key="GridCell.Tab.0.center/0.0.1920.1055/1920.0.1280.1024@0.0.1920.1055" timestamp="1591516512265" />
+    <state width="1899" height="347" key="GridCell.Tab.0.left" timestamp="1591516512265">
+      <screen x="0" y="0" width="1920" height="1055" />
+    </state>
+    <state width="1899" height="347" key="GridCell.Tab.0.left/0.0.1920.1055/1920.0.1280.1024@0.0.1920.1055" timestamp="1591516512265" />
+    <state width="1899" height="347" key="GridCell.Tab.0.right" timestamp="1591516512265">
+      <screen x="0" y="0" width="1920" height="1055" />
+    </state>
+    <state width="1899" height="347" key="GridCell.Tab.0.right/0.0.1920.1055/1920.0.1280.1024@0.0.1920.1055" timestamp="1591516512265" />
+    <state width="1899" height="347" key="GridCell.Tab.1.bottom" timestamp="1591516512265">
+      <screen x="0" y="0" width="1920" height="1055" />
+    </state>
+    <state width="1899" height="347" key="GridCell.Tab.1.bottom/0.0.1920.1055/1920.0.1280.1024@0.0.1920.1055" timestamp="1591516512265" />
+    <state width="1899" height="347" key="GridCell.Tab.1.center" timestamp="1591516512265">
+      <screen x="0" y="0" width="1920" height="1055" />
+    </state>
+    <state width="1899" height="347" key="GridCell.Tab.1.center/0.0.1920.1055/1920.0.1280.1024@0.0.1920.1055" timestamp="1591516512265" />
+    <state width="1899" height="347" key="GridCell.Tab.1.left" timestamp="1591516512265">
+      <screen x="0" y="0" width="1920" height="1055" />
+    </state>
+    <state width="1899" height="347" key="GridCell.Tab.1.left/0.0.1920.1055/1920.0.1280.1024@0.0.1920.1055" timestamp="1591516512265" />
+    <state width="1899" height="347" key="GridCell.Tab.1.right" timestamp="1591516512265">
+      <screen x="0" y="0" width="1920" height="1055" />
+    </state>
+    <state width="1899" height="347" key="GridCell.Tab.1.right/0.0.1920.1055/1920.0.1280.1024@0.0.1920.1055" timestamp="1591516512265" />
+    <state x="100" y="99" width="1720" height="855" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1591516512393">
+      <screen x="0" y="0" width="1920" height="1055" />
+    </state>
+    <state x="100" y="99" width="1720" height="855" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1055/1920.0.1280.1024@0.0.1920.1055" timestamp="1591516512393" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test2.py</url>
+          <line>72</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

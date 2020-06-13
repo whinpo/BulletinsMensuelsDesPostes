@@ -30,6 +30,41 @@ import csv
 import json
 from pprint import pprint
 from tei_reader import TeiReader
+
+def get_full_ark(noid):
+    tab=['0','1','2','3','4','5','6','7','8','9','b','c','d','f','g','h','j','k','m','n','p','q','r','s','t','v','w','x','z']
+    value=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28]
+    total=0
+    i=1
+    ark='bpt6k{}'.format(noid)
+    for chars in ark:
+    	# on multiplie la valeur du char par sa position (i)
+    	try:
+    		total+=value[tab.index(chars)] * i
+    	except:
+    		print('rien')
+    	i=i+1
+    modulo = total%29
+    cle=tab[value.index(modulo)]
+    ret='{}{}'.format(ark,cle)
+    # print('ark {} -- total {} -- modulo {} -- cle {} -- obtient : {}{}'.format(ark,total,modulo,cle,ark,cle))
+    return ret
+
+def get_lien(xref):
+    # FOREIGN (5511454/000060.TIF)
+    # foreign=5511454/000060
+    foreign=xref.split('(')[1].split(')')[0].split('.')[0]
+    # noid=5511454
+    noid=foreign.split("/")[0]
+    # ark =
+    ark=get_full_ark(noid)
+    #page=60
+    page=foreign.split("/")[1].lstrip('0')
+    ret='https://gallica.bnf.fr/ark:/12148/{}/f{}.image'.format(ark,page)
+    # print(ret)
+    return(ret)
+
+
 url='https://gallica.bnf.fr/services/Toc?ark=bpt6k5511454q'
 session = HTMLSession()
 page_html=session.get(url)
@@ -56,10 +91,11 @@ for div in soup.find_all('div0'):
                                 for rows in div3.table:
                                     for cells in rows.find_all('cell'):
                                         try:
-                                            print("\t\t\t\t{}".format(cells.seg.text))
+                                            print("\t\t\t\tArticle - {}".format(cells.seg.text))
                                         except:
                                             xref=cells.xref.attrs.get("from")
-                                            print("\t\t\t\t\t{}".format(xref))
+                                            lien=get_lien(xref)
+                                            print("\t\t\t\t\tLien - {}".format(get_lien(xref)))
                                         # print("\t\t\t\t{}".format(cells))
                             except:
                                 pass
@@ -68,10 +104,10 @@ for div in soup.find_all('div0'):
                             for rows in div2.table:
                                 for cells in rows.find_all('cell'):
                                     try:
-                                        print("\t\t\t{}".format(cells.seg.text))
+                                        print("\t\t\tArticle - {}".format(cells.seg.text))
                                     except:
                                         xref=cells.xref.attrs.get("from")
-                                        print("\t\t\t\t{}".format(xref))
+                                        print("\t\t\t\tLien - {}".format(get_lien(xref)))
                         except:
                             pass
                     except:
@@ -81,10 +117,10 @@ for div in soup.find_all('div0'):
                     for rows in div1.table:
                         for cells in rows.find_all('cell'):
                             try:
-                                print("\t\t{}".format(cells.seg.text))
+                                print("\t\tArticle - {}".format(cells.seg.text))
                             except:
                                 xref=cells.xref.attrs.get("from")
-                                print("\t\t\t{}".format(xref))
+                                print("\t\t\tLien - {}".format(get_lien(xref)))
                 except:
                     pass
             except:
