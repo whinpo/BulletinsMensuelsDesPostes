@@ -38,12 +38,12 @@ def get_full_ark(noid):
     i=1
     ark='bpt6k{}'.format(noid)
     for chars in ark:
-    	# on multiplie la valeur du char par sa position (i)
-    	try:
-    		total+=value[tab.index(chars)] * i
-    	except:
-    		print('rien')
-    	i=i+1
+        # on multiplie la valeur du char par sa position (i)
+        try:
+            total+=value[tab.index(chars)] * i
+        except:
+            print('rien')
+        i=i+1
     modulo = total%29
     cle=tab[value.index(modulo)]
     ret='{}{}'.format(ark,cle)
@@ -66,14 +66,14 @@ def get_lien(xref):
 
 # permet de rechercher les div arborescences de div.
 # i : permet de rechercher les divi : div0, div1  etc..
-def get_div(soup,i):
-    divI='div{}'.format(i)
-    # print(divI)
-    # print("boucle {}".format(divI))
-    # try:
-    for div in soup.find_all(divI):
-        print()
-        if (div.get('type') != 'Index') :
+# def get_div(soup,i):
+#     divI='div{}'.format(i)
+#     # print(divI)
+#     # print("boucle {}".format(divI))
+#     # try:
+#     for div in soup.find_all(divI):
+#         print()
+#         if (div.get('type') != 'Index') :
             # print(soup.div['type'])
         # if soup.div1['type'] != 'Index' :
             # print('ononon')
@@ -128,7 +128,6 @@ def get_div(soup,i):
     # #     pass
 
 
-
 url='https://gallica.bnf.fr/services/Toc?ark=bpt6k5511454q'
 # url='https://gallica.bnf.fr/services/Toc?ark=bpt6k55112845'
 session = HTMLSession()
@@ -139,7 +138,7 @@ soup=bs.BeautifulSoup(page2,'lxml')
 Table=soup.find("contenu", text=re.compile('TABLE CHRONO'))
 tdm=Table.previous_element
 
-get_div(soup,0)
+# get_div(soup,0)
 
 #if soup.div1.has_attr('type') and soup.div1['type'] == 'Index'
 
