@@ -7,7 +7,7 @@ Grâce à leurs API http://api.bnf.fr/api-document-de-gallica nous avons accès 
 
 # Table des matières (TOC)
 Ces TOC sont la base même de la récupération de données des Bulletins Mensuels des Postes (BM).
-Le but est de fabriquer un tableau qui permettra ensuite (après injection dans une base de données par exemple) de faire des recherches plus simplement que depuis l'interface de la BNF
+Le but est de fabriquer un tableau qui permettra ensuite (après injection dans une base de données par exemple) de faire des recherches plus simplement que depuis l'interface de la BNF.
 Ex : https://gallica.bnf.fr/services/Toc?ark=bpt6k5518984r
 
 ## Types de TOC
