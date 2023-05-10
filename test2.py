@@ -77,55 +77,55 @@ def get_div(soup,i):
             # print(soup.div['type'])
         # if soup.div1['type'] != 'Index' :
             # print('ononon')
-            tab="\t"*i
-            # print('{}on descend'.format(tab))
-            print('{}{}'.format(tab,div.contenu.text))
-            try:
-                j=i+1
-                # # on incrémente I pour descendre dans l'arborescence
-                get_div(div,j)
+    #         tab="\t"*i
+    #         # print('{}on descend'.format(tab))
+    #         print('{}{}'.format(tab,div.contenu.text))
+    #         try:
+    #             j=i+1
+    #             # # on incrémente I pour descendre dans l'arborescence
+    #             get_div(div,j)
 
-                # on lit les tables de div
-                try:
-                    # print()
-                    # print('{}table'.format(tab))
-                    # print('{}{}'.format(tab,div.table.prettify()))
-                    for tables in div.find_all('table',recursive=False):
-                        # print('{}{}'.format(tab,tables.prettify()))
-                        for rows in tables:
-                            for cells in rows.find_all('cell'):
-                                try:
-                                    print("\t{}Article - {}".format(tab,cells.seg.text))
-                                except:
-                                    xref=cells.xref.attrs.get("from")
-                                    print("\t\t{}-{}".format(tab,get_lien(xref)))
-                except:
-                    # print('pas de tableau ici')
-                    pass
-                # on lit les listes
-                try:
-                    for listes in div.find_all('list',recursive=False):
-                        for items in listes:
-                                # print(items)
-                                try:
-                                    print("\t{}Liste-Article - {}".format(tab,items.seg.text))
-                                except:
-                                    pass
-                                try:
-                                    xref=items.xref.attrs.get("from")
-                                    print("\t\t{}Liste-Lien - {}".format(tab,get_lien(xref)))
-                                except:
-                                    pass
-                except:
-                    # print('pas de liste ici')
-                    pass
-            except:
-                # print('on remonte')
-                pass
-    # except  Exception as e:
-    #     print('po')
-    #     print(e)
-    #     pass
+    #             # on lit les tables de div
+    #             try:
+    #                 # print()
+    #                 # print('{}table'.format(tab))
+    #                 # print('{}{}'.format(tab,div.table.prettify()))
+    #                 for tables in div.find_all('table',recursive=False):
+    #                     # print('{}{}'.format(tab,tables.prettify()))
+    #                     for rows in tables:
+    #                         for cells in rows.find_all('cell'):
+    #                             try:
+    #                                 print("\t{}Article - {}".format(tab,cells.seg.text))
+    #                             except:
+    #                                 xref=cells.xref.attrs.get("from")
+    #                                 print("\t\t{}-{}".format(tab,get_lien(xref)))
+    #             except:
+    #                 # print('pas de tableau ici')
+    #                 pass
+    #             # on lit les listes
+    #             try:
+    #                 for listes in div.find_all('list',recursive=False):
+    #                     for items in listes:
+    #                             # print(items)
+    #                             try:
+    #                                 print("\t{}Liste-Article - {}".format(tab,items.seg.text))
+    #                             except:
+    #                                 pass
+    #                             try:
+    #                                 xref=items.xref.attrs.get("from")
+    #                                 print("\t\t{}Liste-Lien - {}".format(tab,get_lien(xref)))
+    #                             except:
+    #                                 pass
+    #             except:
+    #                 # print('pas de liste ici')
+    #                 pass
+    #         except:
+    #             # print('on remonte')
+    #             pass
+    # # except  Exception as e:
+    # #     print('po')
+    # #     print(e)
+    # #     pass
 
 
 
@@ -136,6 +136,8 @@ page_html=session.get(url)
 # on remplace la balise head par texte sinon bs ne fonctionne pas bien, il enlève les head
 page2=page_html.html.html.replace('head','contenu')
 soup=bs.BeautifulSoup(page2,'lxml')
+Table=soup.find("contenu", text=re.compile('TABLE CHRONO'))
+tdm=Table.previous_element
 
 get_div(soup,0)
 
