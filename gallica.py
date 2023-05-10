@@ -25,12 +25,12 @@ def get_full_ark(noid):
     i=1
     ark='bpt6k{}'.format(noid)
     for chars in ark:
-    	# on multiplie la valeur du char par sa position (i)
-    	try:
-    		total+=value[tab.index(chars)] * i
-    	except:
-    		print('rien')
-    	i=i+1
+        # on multiplie la valeur du char par sa position (i)
+        try:
+            total+=value[tab.index(chars)] * i
+        except:
+            print('rien')
+        
     modulo = total%29
     cle=tab[value.index(modulo)]
     ret='{}{}'.format(ark,cle)
